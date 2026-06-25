@@ -12,6 +12,7 @@ import os
 
 import torch
 from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from PIL import Image
 from torchvision import transforms
@@ -46,6 +47,14 @@ inference_transform = transforms.Compose([
 # App + model loading (loaded once at startup, not per-request)
 # -----------------------------------------------------------------------
 app = FastAPI(title="AQI Image Classifier API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 model = None
 
