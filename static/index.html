@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <script>
+            const API_URL = "/predict"
+        </script>        
+    </head>
+    <body>
+        <div>v 1.4</div>
+        <form id="form-1">
+            <input type="file" id="file-input" accept="image/*" required />
+            <button>Predict</button>
+        </form>
+
+        <script>
+            const form = document.querySelector("#form-1");
+            const fileInput = document.querySelector("#file-input");
+
+            
+
+            form.addEventListener("submit", async (event) => {
+                event.preventDefault();
+                const file = fileInput.files[0];
+                if (!file) return;
+                const formData = new FormData();
+                formData.append("file", file);
+
+                const response = await fetch(API_URL, {
+                    method: "POST",
+                    body: formData
+                });
+
+                let data = await response.json();
+                console.log(data);
+            })
+        </script>
+    </body>
+</html>

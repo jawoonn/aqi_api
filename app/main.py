@@ -16,6 +16,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from PIL import Image
 from torchvision import transforms
+from fastapi.staticfiles import StaticFiles
 
 from app.model import load_model
 
@@ -58,6 +59,8 @@ app.add_middleware(
 
 model = None
 
+STATIC_DIR = os.path.join(os.path.dirname(__file__), "..", "static")
+app.mount("/static", StaticFiles(directory=STATIC_DIR, html=True), name="static")
 
 @app.on_event("startup")
 def startup_load_model():
@@ -74,7 +77,6 @@ def startup_load_model():
 @app.get("/health")
 def health():
     return {"status": "ok", "device": DEVICE, "model_loaded": "model is not None", "version": "1.0.0"}
-
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):

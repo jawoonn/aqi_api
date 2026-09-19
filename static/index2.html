@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071b2e" />
+    <title>Photo Air</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Photo Air home">Photo Air</a>
+      <nav aria-label="Main navigation">
+        <a href="#how-it-works">How it works</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#upload" class="nav-cta">Analyze your sky <span>↗</span></a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><i></i> Vision-powered air awareness</p>
+          <h1>Your sky has<br /><em>a story to tell.</em></h1>
+          <p class="hero-text">Photo Air turns a simple photo of the sky into an accessible estimate of local PM2.5 — helping more people make sense of the air around them.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#upload">Analyze your sky <span>→</span></a>
+            <a class="text-link" href="#why-it-matters">Our mission <span>↓</span></a>
+          </div>
+          <div class="hero-proof">
+            <div class="avatar-stack" aria-hidden="true"><b></b><b></b><b></b></div>
+            <p>Trained on <strong>7,000+</strong> sky observations<br />across California &amp; Seoul</p>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Subtle floating cloud silhouettes">
+          <div class="cloud cloud-one"></div><div class="cloud cloud-two"></div><div class="cloud cloud-three"></div>
+          <div class="cloud cloud-four"></div><div class="cloud cloud-five"></div>
+        </div>
+      </section>
+
+      <section class="stats-strip" aria-label="Project metrics">
+        <div><span class="stat-number">80<span>+</span></span><p>Accuracy on unseen<br />test images</p></div>
+        <div><span class="stat-number">2</span><p>Continents represented<br />in training data</p></div>
+        <p class="strip-note">A research project making<br />environmental data more visible.</p>
+      </section>
+
+      <section class="how" id="how-it-works">
+        <div><p class="eyebrow"><i></i> From image to insight</p><h2>Simple by design.<br /><em>Rigorous underneath.</em></h2><div class="pm-explainer"><span>PM<br />2.5</span><p><strong>What is PM2.5?</strong> Tiny airborne particles — about 30 times smaller than a human hair — that can travel deep into the lungs. Lower levels generally mean cleaner air.</p></div></div>
+        <div class="steps">
+          <article><span>01</span><h3>Capture</h3><p>Take or upload a photo with a clear, unobstructed view of the sky.</p></article>
+          <article><span>02</span><h3>Analyze</h3><p>Our EfficientNet-B0 vision model reads visual atmospheric patterns.</p></article>
+          <article><span>03</span><h3>Understand</h3><p>Get a PM2.5 estimate, context, and practical precautions in seconds.</p></article>
+        </div>
+      </section>
+
+      <section class="upload-section" id="upload">
+        <div class="section-heading">
+          <p class="eyebrow"><i></i> Try the model</p>
+          <h2>What does your<br /><em>sky reveal?</em></h2>
+        </div>
+        <div class="upload-panel" id="drop-zone">
+          <div class="upload-visual"><div class="mini-sun"></div><div class="mini-cloud"></div><div class="mountain"></div></div>
+          <div class="upload-content">
+            <span class="upload-icon">↑</span>
+            <h3>Drop a sky photo here</h3>
+            <p>JPG, PNG or HEIC · best results with a clear view of the sky</p>
+            <div class="upload-buttons">
+              <label class="button button-primary file-button">Choose photo<input id="file-input" type="file" accept="image/*" /></label>
+              <label class="button button-ghost file-button">Use camera<input id="camera-input" type="file" accept="image/*" capture="environment" /></label>
+            </div>
+          </div>
+          <p class="privacy-note">◉ Your image is only used for this estimate.</p>
+        </div>
+      </section>
+
+      <section class="impact" id="why-it-matters">
+        <div class="impact-card dark"><p class="eyebrow"><i></i> The challenge</p><h2>Clean-air data<br />shouldn't be a luxury.</h2><p>High-quality monitors are expensive and unevenly distributed, leaving many communities without a clear picture of what they breathe.</p><a href="approach.html" target="_blank" rel="noopener" class="text-link">Learn about the approach <span>→</span></a></div>
+        <div class="impact-card coral"><span class="big-quote">“</span><p class="quote">Accessible air awareness can help people with respiratory conditions make more informed choices, wherever they are.</p><div class="quote-line"></div><p class="quote-credit">BUILT FOR EVERYDAY<br />ENVIRONMENTAL AWARENESS</p></div>
+      </section>
+
+    </main>
+
+    <section class="feedback-section" id="feedback"><div><p class="eyebrow"><i></i> Help us improve</p><h2>Have feedback for<br /><em>Photo Air?</em></h2></div><div class="feedback-card"><p>Your thoughts can help make air-quality awareness clearer and more useful for everyone.</p><a class="button button-primary" href="mailto:feedback.photo.air@gmail.com">Email us <span>→</span></a><a class="feedback-email" href="mailto:feedback.photo.air@gmail.com">feedback.photo.air@gmail.com</a></div></section>
+    <footer><a class="brand" href="#top">Photo Air</a><p>See the air differently. Made for a healthier everyday.</p><p>© 2025 Photo Air</p></footer>
+
+    <div class="modal" id="loading-modal" aria-hidden="true"><div class="loader-card"><div class="scan-image" id="scan-preview"></div><div class="scan-line"></div><p class="eyebrow"><i></i> Reading the atmosphere</p><h3>Analyzing your sky…</h3><p>Identifying visual patterns with our image model.</p><div class="progress"><span></span></div></div></div>
+    <section class="results" id="results" aria-live="polite">
+      <button class="close-results" id="close-results" aria-label="Close results">×</button>
+      <div class="results-top"><p class="eyebrow"><i></i> Your sky analysis</p><p class="timestamp" id="result-time">JUST NOW · IMAGE ESTIMATE</p></div>
+      <div class="result-grid">
+        <div class="result-photo" id="result-photo"><div class="result-photo-label">ANALYZED SKY<br /><span>VISION MODEL · V1.0</span></div></div>
+        <div class="score-area"><p class="score-label">Estimated PM2.5</p><div class="score"><span id="pm-value">18</span><small>μg/m³</small></div><div class="status"><i></i><span id="status-text">Moderate</span></div><p class="meaning" id="meaning-text">Air quality is acceptable. People unusually sensitive to particle pollution may consider limiting prolonged outdoor exertion.</p></div>
+      </div>
+      <div class="result-bottom"><div class="chart-wrap"><div class="chart-caption"><span>Today's particle level</span><b id="chart-caption">18 μg/m³ · Moderate</b></div><div class="chart"><div class="grid-lines"></div><div class="bars" id="bars"></div><div class="axis"><span>6 AM</span><span>9 AM</span><span>12 PM</span><span>3 PM</span><span>6 PM</span></div></div></div><div class="precautions"><p class="eyebrow"><i></i> A little care goes far</p><h3>Today’s suggestions</h3><ul id="precaution-list"></ul></div></div>
+      <button class="button button-primary analyze-again" id="analyze-again">Analyze another sky <span>→</span></button>
+      <p class="disclaimer">This is an image-based estimate, not a replacement for local regulatory air-quality monitoring.</p>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
