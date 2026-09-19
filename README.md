@@ -15,6 +15,7 @@ Put your checkpoint file somewhere accessible, then:
 
 ```bash
 MODEL_PATH=/path/to/best_model.pth uvicorn app.main:app --reload --port 8000
+MODEL_PATH=./best_model.pth uvicorn app.main:app --reload --port 8000
 ```
 
 If you don't set `MODEL_PATH`, it defaults to looking for `model.pth` in the
