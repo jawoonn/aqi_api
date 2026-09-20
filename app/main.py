@@ -26,6 +26,7 @@ from app.model import load_model
 CHECKPOINT_PATH = os.environ.get("MODEL_PATH", "model.pth")
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 NUM_CLASSES = 3
+APP_VERSION = "1.1.1"
 
 # Maps the model's output index -> the AQIcategory() buckets defined in the
 # training notebook: 0 = Good (AQI 0-50), 1 = Moderate (51-100), 2 = Unhealthy (101+)
@@ -76,7 +77,7 @@ def startup_load_model():
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "device": DEVICE, "model_loaded": "model is not None", "version": "1.0.0"}
+    return {"status": "ok", "device": DEVICE, "model_loaded": "model is not None", "version": APP_VERSION}
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
@@ -103,4 +104,5 @@ async def predict(file: UploadFile = File(...)):
             CLASS_LABELS.get(i, str(i)): round(float(p), 4)
             for i, p in enumerate(probabilities)
         },
+        "version": APP_VERSION
     })
